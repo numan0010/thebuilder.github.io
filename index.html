@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Circular</title>
+  <!-- <link rel="stylesheet" href="/css/style.css" /> -->
+  <script src="/js/index.js" defer></script>
+  <style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css");
+
+.btn {
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    width: fit-content;
+    margin: 8px 0;
+    font-family: sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* #695acd */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+body{
+    background-color: coral;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+header{
+    height: 10vh;
+}
+
+.navBar {
+    display: flex;
+    flex-direction: column;
+    background-color: #9b4320;
+    height: 10vh;
+}
+
+
+.logo {
+    position: relative;
+}
+
+.branding {
+    text-transform: lowercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    padding: 10px;
+    margin-left: 1rem;
+    text-shadow: 0 2px 5px #042f36;
+}
+
+.nav {
+    display: none;
+    position: relative;
+    padding: .5rem 0;
+    background-color: #042f36;
+    height: 42vh;
+    height: fit-content;
+}
+
+
+.navList{
+    list-style: none;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 0;
+    transition: .5s all ease-in-out;
+}
+
+.navLink {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    transition: .5s all ease-in-out;
+}
+
+.navList:hover {
+    background-color: #af1288;
+}
+
+.toggleBar{
+    position: absolute;
+    cursor: pointer;
+    width: 35px;
+    height: 33px;
+    top: .9rem;
+    right: 1rem;
+}
+
+.toggleRotate {
+    position: absolute;
+    cursor: pointer;
+    top: .8rem;
+    width: 33px;
+    height: 4px;
+    background: #fff;
+    border-radius: 5px;
+    transition: .5s all ease-in-out;
+}
+
+.toggleRotate::before,
+.toggleRotate::after {
+    content: '';
+    position: absolute;
+    width: 33px;
+    height: 4px;
+    background: #fff;
+    border-radius: 5px;
+    transition: .5s all ease-in-out;
+}
+
+.toggleRotate::before{
+    transform:translateY(-10px)
+}
+
+.toggleRotate::after{
+    transform:translateY(10px)
+}
+
+.open .toggleRotate {
+    transform: translateX(-33px);
+    background: transparent;
+}
+
+.open .toggleRotate::before {
+    transform: rotate(45deg) translate(24px, -24px);
+}
+.open .toggleRotate::after {
+    transform: rotate(-45deg) translate(24px, 24px);
+}
+
+.sec-1 {
+    background-image: url(/img/bg-3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:60vh;
+}
+
+.heading-line {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.sec-1 h1 {
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.sec-1 p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.p-context {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff9;
+    word-break: keep-all;
+}
+
+.btn-dark {
+    background: #000;
+}
+
+.btn-dark:hover{
+    background: #fff;
+    border-color: #fff;
+    color: #000;
+}
+
+.btn-light {
+    background: transparent;
+    border-color: white;
+    color: #fff;
+}
+
+.btn-light:hover{
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.sec-2{
+    background-color: #010405;
+    height: max-content;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 4rem;
+}
+.sec-2-head {
+    padding: 4rem 3rem;
+}
+
+.sec-2 h2{
+    display: block;
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 0 2px 5px #fff4;
+}
+
+.sec-2 p{
+    padding: 1rem 0 ;
+    display: block;
+    font-size: 18px;
+    text-align: center;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+
+.box-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #fff3;
+    padding: 5px 5px 0 5px;
+    width: 240px;
+    height: 280px;
+    margin: 10px 3px;
+}
+.sec-contact{
+    background-color: #ecdbdb;
+    padding: 2.5rem .5rem;
+}
+
+.sec-contact h1{
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 800;
+    color: #000;
+    text-decoration-line: underline;
+}
+
+.contact-content{
+    margin-top: 3rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+
+}
+
+.input {
+    padding: 10px 20px;
+    width: 80%;
+    background-color: #b4b1b1;
+    color: #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border: 1px solid #000 ;
+    border-radius: 25px;
+    outline-style: none;
+}
+
+.name-input {
+    text-transform: capitalize;
+}
+
+.msg-input {
+    padding-top: 15px;
+}
+
+.contact-btn {
+    background: #042f36;
+    color: #fff;
+    cursor: pointer;
+    width: 80%;
+    border: transparent;
+}
+
+.contact-btn:hover{
+    background: #077788;
+}
+
+footer {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+    
+}
+
+.social {
+    margin-bottom: 10px;
+}
+
+.social ul li {
+    word-break: keep-all;
+    display: inline;
+    text-align: center;
+}
+
+.footLink {
+    font: 1em sans-serif;
+    text-decoration: none;
+}
+
+.space-footer {
+    margin: 0 4px;
+}
+
+.p-footer {
+    color: #fff7;
+    font-size: 15px;
+}
+
+/* Media Query */
+
+@media screen and (min-width:720px) {
+    .toggleBar {
+        display: none;
+    }
+
+    .nav {
+        display: block;
+        background: none;
+    }
+
+    .navBar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navList {
+        display: inline-block;
+        
+    }
+
+    .navList:hover{
+        background-color: transparent;
+        
+    }
+
+    .navList a{
+        margin-right: 1rem;
+        text-transform: capitalize;
+        font-size: 18px;
+    }
+
+    .navList a:hover{
+        font-size: 24px;
+    }
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="navBar">
+      <div class="logo">
+        <h2 class="branding">builder.</h2>
+      </div>
+      <div class="nav">
+        <ul>
+          <li class="navList"><a class="navLink" href="#">home</a></li>
+          <li class="navList"><a class="navLink" href="#about-us">about</a></li>
+          <li class="navList"><a class="navLink" href="#contact-us">contact</a></li>
+          <li class="navList"><a class="navLink" href="#social-links">social</a></li>
+          <li class="navList"><a class="navLink" href="#">resume</a></li>
+          <li class="navList"><a class="navLink" href="#">blogs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="toggleBar">
+      <span class="toggleRotate"></span>
+    </div>
+
+  </header>
+  <main>
+    <section class="sec-1">
+      <h1 class="heading-line">web<br>builder</h1>
+      <p class="p-context">This is the agency of the future.</p>
+      <br>
+      <!-- <a href="#" class="btn btn-dark">my work demo</a> -->
+      <a href="#" class="btn btn-light">hire me</a>
+    </section>
+
+    <section class="sec-2" id="about-us">
+      <div class="sec-2-head">
+        <h2 class="heading-line">what makes us a special agency</h2>
+        <p class="p-context">we create best mobile-friendly products for our clients. we charge affordable price for the
+          product as compare to others. we try our best to full fill clients demands. we provide free service for 6
+          months</p>
+      </div>
+      <div class="box-1 box-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-cpu-fill"
+          viewBox="0 0 16 16">
+          <path d="M6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z" />
+          <path
+            d="M5.5.5a.5.5 0 0 0-1 0V2A2.5 2.5 0 0 0 2 4.5H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2v1H.5a.5.5 0 0 0 0 1H2A2.5 2.5 0 0 0 4.5 14v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14h1v1.5a.5.5 0 0 0 1 0V14a2.5 2.5 0 0 0 2.5-2.5h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14v-1h1.5a.5.5 0 0 0 0-1H14A2.5 2.5 0 0 0 11.5 2V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5a.5.5 0 0 0-1 0V2h-1V.5zm1 4.5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5v-3A1.5 1.5 0 0 1 6.5 5z" />
+        </svg>
+        <h2>High quality</h2>
+        <p class="p-context">we provide high quality products as per client's demand</p>
+      </div>
+      <div class="box-2 box-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-collection-play"
+          viewBox="0 0 16 16">
+          <path
+            d="M2 3a.5.5 0 0 0 .5.5h11a.5.5 0 0 0 0-1h-11A.5.5 0 0 0 2 3zm2-2a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7A.5.5 0 0 0 4 1zm2.765 5.576A.5.5 0 0 0 6 7v5a.5.5 0 0 0 .765.424l4-2.5a.5.5 0 0 0 0-.848l-4-2.5z" />
+          <path
+            d="M1.5 14.5A1.5 1.5 0 0 1 0 13V6a1.5 1.5 0 0 1 1.5-1.5h13A1.5 1.5 0 0 1 16 6v7a1.5 1.5 0 0 1-1.5 1.5h-13zm13-1a.5.5 0 0 0 .5-.5V6a.5.5 0 0 0-.5-.5h-13A.5.5 0 0 0 1 6v7a.5.5 0 0 0 .5.5h13z" />
+        </svg>
+        <h2>cool animation</h2>
+        <p class="p-context">we add best high quality cool animations on site</p>
+      </div>
+      <div class="box-3 box-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-pencil-square"
+          viewBox="0 0 16 16">
+          <path
+            d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+          <path fill-rule="evenodd"
+            d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+        </svg>
+        <h2>easy to change</h2>
+        <p class="p-context">we allow clients multiple choices and multipe changes.</p>
+      </div>
+    </section>
+    <section class="sec-contact" id="contact-us">
+      <h1>contact us</h1>
+        <div class="contact-content">
+          <form method="get"value="" class="contact-form">
+            <input type="text"value="" class="input name-input" placeholder="Name">
+            <input type="email" value="" class="input email-input" placeholder="Email" required>
+            <textarea name="msg"value="" class="input msg-input" cols="30" rows="10" placeholder="Your Message" required></textarea>
+            <input type="submit" value="send" class="btn input contact-btn">
+          </form>
+        </div>   
+      </div>
+    </section>
+
+    <footer>
+      <div class="social" id="social-links">
+        <ul>
+          <li><a href="#" target="_blank" class="footLink"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+          </svg> Instagram</a></li>
+          <li><label class="space-footer">|</label></li>
+          <li><a href="#" target="_blank" class="footLink"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+          </svg> Facebook</a></li>
+          <li><label class="space-footer">|</label></li>
+          <li><a href="#" target="_blank" class="footLink"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+          </svg> Twitter</a></li>
+        </ul>
+      </div>
+      <div class="copyright">
+        <p class="p-footer">copyright 2020 - 2025 | Powered by builder.</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- JavaScript's here -->
+  <script>
+    let toggleBtn = document.querySelector('.toggleBar');
+let nav = document.querySelector('.nav');
+let navBar = document.querySelector('.navBar');
+let active = false;
+
+toggleBtn.addEventListener('click', () => {
+    if (active == false) {
+        nav.style.display = "block";
+        navBar.style.background = "#042f36"
+        toggleBtn.classList.add('open');
+        active = true;   
+    }
+    else {
+        nav.style.display = 'none';
+        navBar.style.background = "#9b4320"
+        toggleBtn.classList.remove('open');
+        active = false;
+    }
+})
+  </script>
+</body>
+
+</html>
