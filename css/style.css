@@ -140,7 +140,7 @@ header{
 }
 
 .sec-1 {
-    background-image: url(/img/bg-3.jpg);
+    background-image: url(../img/bg-3.jpg);
     /* background-color: rgb(36, 29, 29); */
     background-repeat: no-repeat;
     background-size: cover;
