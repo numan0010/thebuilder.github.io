@@ -199,7 +199,7 @@ header{
 
 .sec-2{
 
-    /* background-color: #042f36; */
+    background-color: #1e292b;
     height: max-content;
     padding: 2rem 1rem;
     display: flex;
@@ -241,9 +241,10 @@ header{
     width: 280px;
     height: 280px;
     margin: 10px;
+    background-color: #af6e19;
 }
 .sec-contact{
-    background-color: rgb(37, 35, 35);
+    background-color: rgb(78, 72, 72);
     /* background-color: #ecdbdb; */
     padding: 2.5rem .5rem;
 }
