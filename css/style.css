@@ -258,6 +258,7 @@ header{
     background-color: #077788;
     text-align: center;
     padding: 2rem 1rem;
+    box-shadow: 2px 4px 1px #0002;
 }
 
 .resume-card h2{
